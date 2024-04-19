@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Change Background Color</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    #targetElement {
+      width: 200px;
+      height: 200px;
+      background-color: lightgray;
+      border: 2px solid black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="targetElement" onclick="changeBackgroundColor()">Click Me!</div>
+
+  <script>
+    function changeBackgroundColor() {
+      // Get the target element
+      var element = document.getElementById('targetElement');
+      
+      // Generate a random color
+      var color = '#2fc4f2';
+      
+      // Change the background color
+      element.style.backgroundColor = color;
+    }
+  </script>
+</body>
+</html>

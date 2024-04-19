@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="numberApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Number Analysis</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.box {
+    border: 1px solid aliceblue;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: rgb(213, 213, 213);
+    max-width: 400px;
+    text-align: center;
+}
+
+button {
+    background-color:black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: gray;
+}
+
+    </style>
+</head>
+<body>
+<div class="box" ng-controller="numberController">
+    <div ng-controller="numberController">
+    <h2>Number Analysis</h2>
+    
+    <label for="number">Enter a number:</label>
+    <input type="number" id="number" ng-model="inputNumber" min="0" required>
+    <br><br>
+
+    <button ng-click="checkArmstrong()">Check Armstrong</button>
+    <button ng-click="checkPrime()">Check Prime</button>
+    <button ng-click="calculateFactorial()">Calculate Factorial</button>
+    <br><br>
+
+    <div ng-show="isArmstrong !== null">
+        <p ng-if="isArmstrong">The number {{ inputNumber }} is an Armstrong number.</p>
+        <p ng-if="!isArmstrong">The number {{ inputNumber }} is not an Armstrong number.</p>
+    </div>
+
+    <div ng-show="isPrime !== null">
+        <p ng-if="isPrime">The number {{ inputNumber }} is a prime number.</p>
+        <p ng-if="!isPrime">The number {{ inputNumber }} is not a prime number.</p>
+    </div>
+
+    <div ng-show="factorial !== null">
+        <p>The factorial of {{ inputNumber }} is {{ factorial }}.</p>
+    </div>
+    </div>
+</div>
+
+<script>
+    angular.module('numberApp', [])
+        .controller('numberController', function($scope) {
+            $scope.inputNumber = null;
+            $scope.isArmstrong = null;
+            $scope.isPrime = null;
+            $scope.factorial = null;
+
+            $scope.checkArmstrong = function() {
+                var numStr = $scope.inputNumber.toString();
+                var numDigits = numStr.length;
+                var sum = 0;
+
+                for (var i = 0; i < numDigits; i++) {
+                    sum += Math.pow(parseInt(numStr[i]), numDigits);
+                }
+
+                $scope.isArmstrong = (sum === $scope.inputNumber);
+            };
+
+            $scope.checkPrime = function() {
+                var num = $scope.inputNumber;
+                $scope.isPrime = (num > 1);
+                for (var i = 2; i <= Math.sqrt(num); i++) {
+                    if (num % i === 0) {
+                        $scope.isPrime = false;
+                        break;
+                    }
+                }
+            };
+
+            $scope.calculateFactorial = function() {
+                var num = $scope.inputNumber;
+                if (num < 0) {
+                    $scope.factorial = null;
+                    return;
+                }
+                var factorial = 1;
+                for (var i = 2; i <= num; i++) {
+                    factorial *= i;
+                }
+                $scope.factorial = factorial;
+            };
+        });
+</script>
+
+</body>
+</html>

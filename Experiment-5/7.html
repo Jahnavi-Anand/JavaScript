@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 7</title>
+    <style>
+        body
+        {
+            background-color: aliceblue;
+            color: rgb(65, 40, 9);
+            font-size: 15px;
+            padding: 10px;
+        }
+        #container {
+            border: 2px solid black;
+            padding: 20px;
+            margin: 20px auto; 
+            max-width: 800px; 
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+    <h2>Prime Numbers in an Interval</h2>
+    <form id="primeNumbersForm">
+        <label for="startNumber">Enter the starting number:</label>
+        <input type="number" id="startNumber" name="startNumber" required><br><br>
+        
+        <label for="endNumber">Enter the ending number:</label>
+        <input type="number" id="endNumber" name="endNumber" required><br><br>
+        
+        <button type="button" onclick="printPrimeNumbers()">Print Prime Numbers</button>
+    </form>
+
+    <p id="primeNumbersResult"></p>
+
+    <script>
+        function isPrime(num) {
+            if (num <= 1) {
+                return false;
+            }
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function printPrimeNumbers() {
+            const startNumber = parseInt(document.getElementById('startNumber').value);
+            const endNumber = parseInt(document.getElementById('endNumber').value);
+            let primeNumbers = [];
+
+            for (let i = startNumber; i <= endNumber; i++) {
+                if (isPrime(i)) {
+                    primeNumbers.push(i);
+                }
+            }
+
+            if (primeNumbers.length === 0) {
+                document.getElementById('primeNumbersResult').innerText = "No prime numbers found in the interval.";
+            } else {
+                document.getElementById('primeNumbersResult').innerText = "Prime numbers in the interval: " + primeNumbers.join(", ");
+            }
+        }
+    </script>
+    </div>
+</body>
+</html>

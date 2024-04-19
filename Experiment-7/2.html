@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="costCalculatorApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Cost Calculator</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        .box {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        input[type="number"] {
+            width: calc(50% - 8px);
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        
+        button {
+    background-color:black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: gray;
+}
+        
+        .total-cost {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box" ng-controller="costCalculatorController">
+    <h2>Cost Calculator</h2>
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div>
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" ng-model="quantity" min="0" required>
+        </div>
+        <div>
+            <label for="price">Price per unit (in ₹):</label>
+            <input type="number" id="price" ng-model="price" min="0" step="0.01" required>
+        </div>
+    </div>
+    <button ng-click="calculateTotal()">Calculate Total Cost</button>
+    <br>
+    <div class="total-cost" ng-show="totalCost !== null">
+        <h3>Total Cost:</h3>
+        <p ng-bind="totalCost | customCurrency"></p>
+    </div>
+</div>
+
+<script>
+    angular.module('costCalculatorApp', [])
+        .controller('costCalculatorController', function($scope) {
+            $scope.totalCost = null;
+
+            $scope.calculateTotal = function() {
+                if ($scope.quantity !== undefined && $scope.price !== undefined) {
+                    $scope.totalCost = $scope.quantity * $scope.price;
+                } else {
+                    $scope.totalCost = null;
+                }
+            };
+        })
+        .filter('customCurrency', function() {
+            return function(input) {
+                if (!isNaN(input)) {
+                    return '₹' + input.toFixed(2);
+                } else {
+                    return input;
+                }
+            };
+        });
+</script>
+
+</body>
+</html>

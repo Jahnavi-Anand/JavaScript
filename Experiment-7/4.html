@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="tableApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Table</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .even {
+            background-color: #f2f2f2;
+        }
+        .odd {
+            background-color: white;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box" ng-controller="numberController">
+<div ng-controller="tableController">
+    <h2>Table Demo</h2>
+    
+    <h3>Original Table</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+        <tr ng-repeat="person in people">
+            <td>{{ person.name }}</td>
+            <td>{{ person.age }}</td>
+        </tr>
+    </table>
+    
+    <button ng-click="toggleOrderByTable()">Display contents of table with Order by Filter</button>
+    <button ng-click="toggleEvenOddTable()">Display Table with even and odd</button>
+    
+    <h3 ng-show="orderByVisible">Table with Order By Filter</h3>
+    <table ng-show="orderByVisible">
+        <tr>
+            <th ng-click="orderByField='name'; reverseSort=!reverseSort">Name</th>
+            <th ng-click="orderByField='age'; reverseSort=!reverseSort">Age</th>
+        </tr>
+        <tr ng-repeat="person in people | orderBy:orderByField:reverseSort">
+            <td>{{ person.name }}</td>
+            <td>{{ person.age }}</td>
+        </tr>
+    </table>
+
+    <h3 ng-show="evenOddVisible">Table with Even and Odd Row Styles</h3>
+    <table ng-show="evenOddVisible">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+        <tr ng-repeat="person in people" ng-class="{ 'even': $even, 'odd': $odd }">
+            <td>{{ person.name }}</td>
+            <td>{{ person.age }}</td>
+        </tr>
+    </table>
+    
+</div>
+</div>
+
+<script>
+    angular.module('tableApp', [])
+        .controller('tableController', function($scope) {
+            $scope.people = [
+                { name: 'Riya', age: 30 },
+                { name: 'Tia', age: 25 },
+                { name: 'Sia', age: 35 },
+                { name: 'Ram', age: 28 },
+                { name: 'Karan', age: 32 }
+            ];
+            $scope.orderByField = 'name';
+            $scope.reverseSort = false;
+            $scope.orderByVisible = false;
+            $scope.evenOddVisible = false;
+
+            $scope.toggleOrderByTable = function() {
+                $scope.orderByVisible = !$scope.orderByVisible;
+                $scope.evenOddVisible = false;
+            };
+
+            $scope.toggleEvenOddTable = function() {
+                $scope.evenOddVisible = !$scope.evenOddVisible;
+                $scope.orderByVisible = false;
+            };
+        });
+</script>
+
+</body>
+</html>

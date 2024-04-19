@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 5</title>
+    <style>
+        body
+        {
+            background-color: aliceblue;
+            color: rgb(65, 40, 9);
+            font-size: 15px;
+            padding: 10px;
+        }
+        #container {
+            border: 2px solid black;
+            padding: 20px;
+            margin: 20px auto; 
+            max-width: 800px; 
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+    <h2>Odd and Even Numbers from 1 to 100</h2>
+    <h3>Odd Numbers:</h3>
+    <ul id="oddNumbersList"></ul>
+
+    <h3>Even Numbers:</h3>
+    <ul id="evenNumbersList"></ul>
+
+    <script>
+        function findOddAndEvenNumbers() {
+            const oddNumbersList = document.getElementById('oddNumbersList');
+            const evenNumbersList = document.getElementById('evenNumbersList');
+
+            for (let i = 1; i <= 100; i++) {
+                if (i % 2 === 0) {
+                    // Even number
+                    const listItem = document.createElement('li');
+                    listItem.textContent = i;
+                    evenNumbersList.appendChild(listItem);
+                } else {
+                    // Odd number
+                    const listItem = document.createElement('li');
+                    listItem.textContent = i;
+                    oddNumbersList.appendChild(listItem);
+                }
+            }
+        }
+
+        findOddAndEvenNumbers();
+    </script>
+    </div>
+</body>
+</html>

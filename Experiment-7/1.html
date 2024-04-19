@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="validationApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Input Validation</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .box {
+            border: 1px solid aliceblue;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: rgb(213, 213, 213);
+            max-width: 400px;
+            text-align: center;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box" ng-controller="mainController">
+    <h2>Change Textbox Background Color</h2>
+    <input type="text" ng-model="bgColor" ng-style="{'background-color': bgColor}">
+    <br>
+    
+
+    <script>
+        angular.module('validationApp', [])
+        .controller('mainController', function($scope) {
+            $scope.applyColor = function() {
+                // Directly apply the input value as background color
+                $scope.bgColor = $scope.userInput;
+            };
+        });
+    </script>
+</div>
+
+</body>
+</html>

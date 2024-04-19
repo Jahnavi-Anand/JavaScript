@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+</head>
+<body>
+    <div style="width: 50; border: 1px solid black;">
+    <table>
+        <form action="url_where_the_form_data_is_stored" method="GET">
+            <tr>
+                <td>USERNAME:</td>
+                <td><input type="text" name="uname"></td>
+            </tr>
+            <tr>
+                <td>PASSWORD:</td>
+                <td><input type="password" name="pwd"></td>
+            </tr>
+          <tr>
+            <td></td>
+            <td><input type="submit" name="sbt"></td>
+          </tr>
+        </form>
+    </table>
+    </div>
+<br>
+    <form>
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="fname"><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname">
+      </form>
+<br>
+      <p>Choose your favorite Web language:</p>
+    <form>
+        <input type="radio" id="html" name="fav_language" value="HTML">
+        <label for="html">HTML</label><br>
+        <input type="radio" id="css" name="fav_language" value="CSS">
+        <label for="css">CSS</label><br>
+        <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+        <label for="javascript">JavaScript</label>
+    </form>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HALLOWEEN</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('images/bgim.jpeg');
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        h2 {
+            text-align: center;
+            color: antiquewhite;
+        }
+        p {
+            color: white;
+            text-align: center;
+        }
+        .footer {
+            background-color: #cac3ff;
+            color: black;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        a {
+            text-decoration: none;
+            font-size: 20px;
+        }
+        a:hover {
+            color: brown;
+        }
+
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+        overflow: hidden;
+        position: relative;
+        display: flex;
+    }
+
+    .container img {
+        max-width: 50%;
+        border-radius: 10px;
+        transition: transform 0.5s ease;
+    }
+
+    .container:hover img {
+        transform: rotateY(150deg);
+    }
+
+    .container p {
+        color: #fff;
+        text-align: center;
+        flex: 1;
+        padding: 20px;
+    }
+
+    .container2 {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+    }
+
+    .container2 img {
+        max-width: 50%;
+        border-radius: 10px;
+        transition: transform 0.5s ease;
+    }
+
+    .container2:hover img {
+        transform: scale(1.2);
+    }
+
+    .container2 p {
+        color: #fff;
+        text-align: center;
+        flex: 1;
+        padding: 20px;
+    }
+   
+
+    .footer {
+        background-color: #cac3ff;
+        color: black;
+        text-align: center;
+        padding: 3px; /* Reduced padding */
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+    </style>
+</head>
+<body>
+    <h2>CELEBRATIONS: HALLOWEEN</h2>
+    <p>Halloween or Hallowe'en is a celebration observed in many countries on 31 October, the eve of the Western Christian feast of All Hallows' Day.</p>
+
+    <div class="container">
+        <img src="images/Spirit Element.jpeg" alt="img">
+        <p>Halloween, a holiday observed on October 31 and noted for its pagan and religious roots and secular traditions. In much of Europe and most of North America, observance of Halloween is largely nonreligious, celebrated with parties, spooky costumes, jack-o'-lanterns, pumpkin carvings, and the giving of candy.</p>
+    </div>
+
+    <div class="container2">
+        <img src="images/icons ✨.jpeg" alt="img">
+        <p>The word Halloween or Hallowe'en ("Saints' evening") is of Christian origin; a term equivalent to "All Hallows Eve" is attested in Old English. The word hallowe[']en comes from the Scottish form of All Hallows' Eve (the evening before All Hallows' Day): even is the Scots term for "eve" or "evening", and is contracted to e'en or een; (All) Hallow(s) E(v)en became Hallowe'en.</p>
+        
+    </div><br><br>
+
+    <footer class="footer">
+        <a href="https://www.npr.org/2022/10/28/1131609633/halloween-scary-books-adults" target="_blank">click here for popular halloween fictions</a>
+    </footer>
+</body>
+</html>

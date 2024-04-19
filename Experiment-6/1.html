@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Number Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    #randomNumberTextbox {
+      padding: 10px;
+      font-size: 18px;
+    }
+    #generateButton {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <input type="text" id="randomNumberTextbox" readonly>
+    <button id="generateButton">Generate Random Number</button>
+  </div>
+
+  <script>
+    document.getElementById('generateButton').addEventListener('click', function() {
+      // Generate a random number between 1 and 100
+      var randomNumber = Math.floor(Math.random() * 100) + 1;
+
+      // Display the random number in the textbox
+      document.getElementById('randomNumberTextbox').value = randomNumber;
+    });
+  </script>
+</body>
+</html>

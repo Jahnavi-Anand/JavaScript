@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sports Selection</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="login-container">
+    <h1>SPORTS SELECTION</h1>
+    <form method="get">
+      <div class="form-group">
+        <label for="studentname">STUDENT NAME:</label>
+        <input type="text" name="studentname" required>
+      </div>
+      <div class="form-group">
+        <label for="password">PASSWORD:</label>
+        <input type="password" name="password" required>
+      </div>
+      <div class="form-group">
+        <label for="age">AGE:</label>
+        <input type="number" name="age" required>
+      </div>
+      <div class="form-group">
+        <label for="dob">DOB:</label>
+        <input type="date" name="dob" required>
+      </div>
+      <div class="form-group">
+        <label for="gender">GENDER:</label>
+        <input list="gender" name="gender" required>
+        <datalist id="gender">
+            <option value="Male">
+            <option value="Female">
+            <option value="Other">
+        </datalist>
+      </div>
+      <div class="form-group">
+        <label for="sports">SELECT SPORTS:</label>
+        <input list="sports" name="sports" required>
+        <datalist id="sports">
+            <option value="Badminton">
+            <option value="Lawn Tennis">
+            <option value="Cricket">
+            <option value="Football">
+            <option value="Basketball">
+          </datalist>
+      </div>
+      <div class="form-button">
+        <button type="submit">SUBMIT</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

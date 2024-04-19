@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Populate Dropdown Box</title>
+    <style>
+        body {
+            background-color: aliceblue;
+            color: rgb(65, 40, 9);
+            font-size: 15px;
+            padding: 10px;
+        }
+        #container {
+            border: 2px solid black;
+            padding: 20px;
+            margin: 20px auto; 
+            max-width: 800px; 
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h2>Populate Dropdown Box</h2>
+        <form>
+            <label for="dropdown">Select a number:</label>
+            <select id="dropdown"></select>
+        </form>
+    </div>
+
+    <script>
+        // JavaScript program to populate a drop-down box from 1 to 1000
+        var selectBox = document.getElementById("dropdown");
+
+        // Loop to populate dropdown with numbers from 1 to 1000
+        for (var i = 1; i <= 1000; i++) {
+            var option = document.createElement("option");
+            option.text = i;
+            option.value = i;
+            selectBox.appendChild(option);
+        }
+    </script>
+</body>
+</html>

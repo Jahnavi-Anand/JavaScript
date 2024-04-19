@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dialog Boxes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="showAlert()">Show Alert</button>
+  <button onclick="showPrompt()">Show Prompt</button>
+  <button onclick="showConfirm()">Show Confirm</button>
+
+  <script>
+    function showAlert() {
+      alert('This is an alert dialog box.');
+    }
+
+    function showPrompt() {
+      var result = prompt('Please enter your name:');
+      if (result !== null) {
+        alert('Hello, ' + result + '! You entered your name using prompt dialog box.');
+      }
+    }
+
+    function showConfirm() {
+      var result = confirm('Are you sure you want to delete this item?');
+      if (result === true) {
+        alert('Item deleted.');
+      } else {
+        alert('Action canceled.');
+      }
+    }
+  </script>
+</body>
+</html>

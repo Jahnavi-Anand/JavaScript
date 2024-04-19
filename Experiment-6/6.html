@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>String Extraction</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    input[type="text"], input[type="number"] {
+      padding: 10px;
+      font-size: 18px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" id="inputString" placeholder="Enter a string">
+  <br>
+  <input type="number" id="charCount" placeholder="Number of characters to extract">
+  <br>
+  <button onclick="extractCharacters()">Extract</button>
+  <br>
+  <p id="result"></p>
+
+  <script>
+    function shuffleString(string) {
+      var array = string.split('');
+      for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+      }
+      return array.join('');
+    }
+
+    function extractCharacters() {
+      var inputString = document.getElementById('inputString').value;
+      var charCount = parseInt(document.getElementById('charCount').value);
+
+      if (isNaN(charCount) || charCount <= 0) {
+        document.getElementById('result').textContent = "Please enter a valid number of characters.";
+        return;
+      }
+
+      if (charCount > inputString.length) {
+        document.getElementById('result').textContent = "Cannot extract more characters than the length of the string.";
+        return;
+      }
+
+      var shuffledString = shuffleString(inputString);
+      var extractedString = shuffledString.substring(0, charCount);
+      document.getElementById('result').textContent = "Extracted characters: " + extractedString;
+    }
+  </script>
+</body>
+</html>

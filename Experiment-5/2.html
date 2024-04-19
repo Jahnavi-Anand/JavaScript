@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 2</title>
+    <style>
+        body
+        {
+            background-color: aliceblue;
+            color: rgb(65, 40, 9);
+            font-size: 30px;
+            padding: 10px;
+        }
+        #container {
+            border: 2px solid black;
+            padding: 20px;
+            margin: 20px auto; 
+            max-width: 800px; 
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+    <h2>Capitalize First Letter of Each Word</h2>
+    <form id="capitalizeForm">
+        <label for="inputString">Enter a string:</label>
+        <input type="text" id="inputString" name="inputString" required><br><br>
+        
+        <button type="button" onclick="capitalizeAndDisplay()">Capitalize</button>
+    </form>
+
+    <p id="capitalizedResult"></p>
+
+    <script>
+        function capitalizeFirstLetterOfEachWord(str) {
+            return str.replace(/\b\w/g, function(char) {
+                return char.toUpperCase();
+            });
+        }
+
+        function capitalizeAndDisplay() {
+            const inputString = document.getElementById('inputString').value;
+            const capitalizedString = capitalizeFirstLetterOfEachWord(inputString);
+            document.getElementById('capitalizedResult').innerText = "Capitalized string: " + capitalizedString;
+        }
+    </script>
+    </div>
+</body>
+</html>
